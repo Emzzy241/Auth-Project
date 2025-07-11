@@ -1,0 +1,110 @@
+GET http://localhost:8000/
+
+### Testing Sign up route
+POST http://localhost:8000/api/auth/signup
+Content-Type: application/json
+
+{
+    "email": "dynasty.dev241@gmail.com",
+    "password": "Dynastyda4*"
+}
+
+### SIGN IN
+POST http://localhost:8000/api/auth/signin
+Content-Type: application/json
+
+{
+    "email": "emzzyoluwole@gmail.com",
+    "password": "Dynastyda444#"
+}
+
+### Sign out route
+POST http://localhost:8000/api/auth/signout
+
+### Verification Code
+PATCH http://localhost:8000/api/auth/send-verification-code
+Content-Type: application/json
+
+{
+    "email": "emzzyoluwole@gmail.com"
+}
+
+### Verifying the Verification Code
+PATCH http://localhost:8000/api/auth/verify-verification-code
+Content-Type: application/json
+
+{
+    "email": "emzzyoluwole@gmail.com",
+    "providedCode": 398809
+}
+
+### Change Password
+PATCH http://localhost:8000/api/auth/change-password
+Content-Type: application/json
+client: not-browser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZTUwMWEwYTE0MDJkYmFlZGQzYTEiLCJlbWFpbCI6ImVtenp5b2x1d29sZUBnbWFpbC5jb20iLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzUyMjQ3NDg0LCJleHAiOjE3NTIyNzYyODR9.JN2sBUUTI_n8PsvhaGynCP8lhevIy1NCquBGfmJ0A5g
+
+{
+    "oldPassword": "Dynastyda2*",
+    "newPassword": "Dynastyda3*"
+}
+
+### Send Forgot Password Code
+PATCH http://localhost:8000/api/auth/send-forgot-password-code
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZTUwMWEwYTE0MDJkYmFlZGQzYTEiLCJlbWFpbCI6ImVtenp5b2x1d29sZUBnbWFpbC5jb20iLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzUyMjQ3NDg0LCJleHAiOjE3NTIyNzYyODR9.JN2sBUUTI_n8PsvhaGynCP8lhevIy1NCquBGfmJ0A5g
+
+{
+    "email": "emzzyoluwole@gmail.com",
+    "password": "Dynastyda3*"
+}
+
+### Verify Forgot Password Code
+PATCH http://localhost:8000/api/auth/verify-forgot-password-code 
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZTUwMWEwYTE0MDJkYmFlZGQzYTEiLCJlbWFpbCI6ImVtenp5b2x1d29sZUBnbWFpbC5jb20iLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzUyMjQ3NDg0LCJleHAiOjE3NTIyNzYyODR9.JN2sBUUTI_n8PsvhaGynCP8lhevIy1NCquBGfmJ0A5g
+
+{
+    "providedCode": "455842",
+    "newPassword": "Dynastyda444#",
+    "email": "emzzyoluwole@gmail.com"
+}
+
+### GET -- POSTS controller
+GET http://localhost:8000/api/posts/all-posts
+Content-Type: application/json
+
+{
+    "email": "emzzyoluwole@gmail.com"
+}
+
+### CREATE 
+POST http://localhost:8000/api/posts/create-post
+Content-Type: application/json
+client: not-browser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZTUwMWEwYTE0MDJkYmFlZGQzYTEiLCJlbWFpbCI6ImVtenp5b2x1d29sZUBnbWFpbC5jb20iLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzUyMjQ3NDg0LCJleHAiOjE3NTIyNzYyODR9.JN2sBUUTI_n8PsvhaGynCP8lhevIy1NCquBGfmJ0A5g
+
+{
+    "title": "something 3",
+    "description": "something more 33333"
+}
+
+### Posts controller GET /ID
+GET http://localhost:8000/api/posts/single-post?_id=68713d70a1af62acdfefa2ca
+
+### Update PUT
+PUT http://localhost:8000/api/posts/update-post?_id=68713a9abe445c770064d5e4
+Content-Type: application/json
+client: not-browser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZTUwMWEwYTE0MDJkYmFlZGQzYTEiLCJlbWFpbCI6ImVtenp5b2x1d29sZUBnbWFpbC5jb20iLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzUyMjQ3NDg0LCJleHAiOjE3NTIyNzYyODR9.JN2sBUUTI_n8PsvhaGynCP8lhevIy1NCquBGfmJ0A5g
+
+{
+    "title": "something 5",
+    "description": "something more 55555"
+}
+
+### Remove DELETE
+DELETE http://localhost:8000/api/posts/delete-post?_id=68713d70a1af62acdfefa2ca
+Content-Type: application/json
+client: not-browser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZTUwMWEwYTE0MDJkYmFlZGQzYTEiLCJlbWFpbCI6ImVtenp5b2x1d29sZUBnbWFpbC5jb20iLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzUyMjQ3NDg0LCJleHAiOjE3NTIyNzYyODR9.JN2sBUUTI_n8PsvhaGynCP8lhevIy1NCquBGfmJ0A5g
