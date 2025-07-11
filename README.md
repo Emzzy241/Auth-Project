@@ -1,6 +1,6 @@
 ## Auth Project
 #### made by Dynasty
-### A Full-fledged authentication system
+### A backend application with a Full-fledged authentication system
 
 ### Technologies Used 
 * _Nodejs_
