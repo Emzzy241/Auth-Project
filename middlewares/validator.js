@@ -45,7 +45,6 @@ exports.changePasswordSchema = Joi.object({
     oldPassword: Joi.string()
         .required()
         .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*d).{8,}$')),
-
 })
 
 exports.acceptForgotPasswordCodeSchema = Joi.object({
