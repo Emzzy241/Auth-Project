@@ -51,7 +51,7 @@ exports.signin = async (req, res) => {
         const existingUser = await User.findOne({ email }).select('+password')
         if (!existingUser) {
             return res
-                .status(200)
+                .status(401)
                 .json({ success: false, message: 'User does not exist' })
         }
         const result = await doHashValidation(password, existingUser.password)
@@ -127,7 +127,7 @@ exports.sendVerificationCode = async (req, res) => {
             await existingUser.save()
             return res.status(200).json({ success: true, message: 'Code sent!' })
         }
-        res.status(200).json({ success: true, message: 'Code sent failed!' })
+        res.status(400).json({ success: true, message: 'Code sent failed!' })
     } catch (error) {
         console.log(error);
     }
